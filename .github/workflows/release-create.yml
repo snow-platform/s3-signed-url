@@ -2,8 +2,8 @@ name: release-create.yml
 
 on:
   push:
-    branches:
-      - main
+    tags: 
+      - 'v**'
 
 jobs:
   tag_check:
