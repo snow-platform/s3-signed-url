@@ -1,0 +1,14 @@
+﻿services:
+  signed-api:
+    container_name: signed-api
+    image: ghcr.io/snow-platform/s3-signed-url:${VERSION}
+    restart: unless-stopped
+    cpu_count: 1
+    mem_limit: 512M
+    mem_reservation: 256M
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

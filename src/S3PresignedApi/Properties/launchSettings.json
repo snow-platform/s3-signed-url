@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7292;http://localhost:5223",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "R2_ACCESS_KEY_ID": "8d89a32e1248de5ec5845623526698ee",
+        "R2_ACCESS_KEY_SECRET": "df307b39e37f4a27d8056ff140b79743c098b4c978a24607bb3f1e1be8c832f9",
+        "R2_ENDPOINT": "https://c8f92b61312b47791603249b0836d6af.r2.cloudflarestorage.com"
+      }
+    }
+  }
+}

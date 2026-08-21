@@ -1,0 +1,6 @@
+@S3PresignedApi_HostAddress = http://localhost:5223
+
+GET {{S3PresignedApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

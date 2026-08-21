@@ -1,0 +1,30 @@
+name: release.yml
+on:
+
+jobs:
+  build:
+    uses: snow-platform/workflows/.github/workflows/docker-build-n-push.yml@main
+    with:
+      context: './src/S3PresignedApi'
+    secrets: inherit
+  
+  deploy:
+    needs: build
+    runs-on: desperation
+    steps:
+      - uses: actions/checkout@v6
+      - name: login registry
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: compose up
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+        run: |
+          VERSION=${TAG_NAME#v}
+          VERSION=$VERSION docker compose up -d
