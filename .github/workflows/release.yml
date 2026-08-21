@@ -1,5 +1,8 @@
 name: release.yml
+
 on:
+  release:
+    types: [ released ]
 
 jobs:
   build:
