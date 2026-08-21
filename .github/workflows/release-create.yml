@@ -6,7 +6,7 @@ on:
       - 'v**'
 
 jobs:
-  tag_check:
+  tag:
     uses: snow-platform/workflows/.github/workflows/tag-check.yml@main
     secrets: inherit
   
@@ -16,7 +16,7 @@ jobs:
       version: '10.0.x'
       
   release:
-    needs: [ tag_check, test ]
+    needs: [ tag, test ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
