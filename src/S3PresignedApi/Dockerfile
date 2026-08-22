@@ -6,7 +6,7 @@ EXPOSE 8080
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/S3PresignedApi/S3PresignedApi.csproj", "src/S3PresignedApi/"]
+COPY ["S3PresignedApi.csproj", "src/S3PresignedApi/"]
 RUN dotnet restore "src/S3PresignedApi/S3PresignedApi.csproj"
 COPY . .
 WORKDIR "/src/src/S3PresignedApi"
