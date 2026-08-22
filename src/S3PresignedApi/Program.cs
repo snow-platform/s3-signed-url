@@ -1,6 +1,5 @@
 using Polly;
 using Polly.Retry;
-using Polly.Timeout;
 using S3PresignedApi;
 using S3PresignedApi.Extension;
 using Scalar.AspNetCore;
