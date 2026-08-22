@@ -8,8 +8,8 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["S3PresignedApi.csproj", "src/S3PresignedApi/"]
 RUN dotnet restore "src/S3PresignedApi/S3PresignedApi.csproj"
+WORKDIR /src/src/S3PresignedApi
 COPY . .
-WORKDIR "/src/src/S3PresignedApi"
 RUN dotnet build "./S3PresignedApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
