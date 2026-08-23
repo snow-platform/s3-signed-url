@@ -16,7 +16,11 @@ builder.Services.AddVersionDefault();
 // handlers
 builder.Services.AddHandlers();
 
+// amazon
 builder.Services.AddAmazonS3();
+
+// health_check
+builder.Services.AddHealthChecks();
 
 // resilience
 builder.Services.AddResiliencePipeline("signed", static x =>
@@ -41,6 +45,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapHealthChecks("/health_check");
 app.MapMinimalEndpoint();
 
 app.Run();
